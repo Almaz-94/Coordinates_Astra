@@ -25,7 +25,7 @@ points_missed=len(ljoin.loc[ljoin.Longitude_y.isnull()])
 avg_dist=round(np.sqrt((ljoin.Longitude_x-ljoin.Longitude_y)**2+(ljoin.Latitude_x-ljoin.Latitude_y)**2).mean(),2)
 
 st2.sort_values(['PR','PK'],inplace=True)
-st2.to_csv('Шамян сличение 2.csv',float_format='%.1f',index=False)
+#st2.to_csv('Шамян сличение 2.csv',float_format='%.1f',index=False)
 
 
 fig,ax=plt.subplots()
