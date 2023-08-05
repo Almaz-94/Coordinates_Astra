@@ -11,8 +11,8 @@ project=pd.concat([stage1,stage3]) #,stage2
 
 garmin=pd.read_excel('.\Исходные данные\Гармин Shamyan_Pl_01_80_s_pulkovo.xlsx',usecols=[3,4])
 
-prn=np.array(project)
-garn=np.array(garmin)
+project_coord=np.array(project)
+garmin_coord=np.array(garmin)
 
 files=os.listdir('./Исходные данные/Планшеты 1-72')
 temp=[]
