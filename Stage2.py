@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
-from Сличение import stage2, garn
+from Read import stage2, garn
 
 prn=np.array(stage2)
 

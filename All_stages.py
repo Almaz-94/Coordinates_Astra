@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
-from Сличение import project_coord, garmin_coord, measured_data
+from Read import project_coord, garmin_coord, measured_data
 
 all = []
 
