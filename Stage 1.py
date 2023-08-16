@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 from Read import  garmin_coord,stage1, measured_data
+import seaborn as sns
 project_coord=np.array(stage1)
 st1 = []
 
@@ -35,6 +36,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
 #ax1.scatter(df_missing_points.Longitude_x, df_missing_points.Latitude_x, s=5, marker='x', c='r',zorder=0)
 resist = ax1.scatter(st1.Longitude, st1.Latitude, c=st1.Resistivity, cmap='viridis_r', s=2.5)
 polar = ax2.scatter(st1.Longitude, st1.Latitude, c=st1.Polarization, cmap='seismic', s=2.5,vmin=-3,vmax=3)
+
 for elem in (ax1, ax2):
     elem.set_xlabel('Longitude')
     elem.set_ylabel('Latitude')
