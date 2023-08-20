@@ -33,7 +33,7 @@ for elem in (ax1, ax2):
     elem.grid(alpha=0.5)
     elem.set_facecolor('lavender')
     #elem.set_box_aspect(1)
-    elem.set_xlim(20512500,20522000)
+    elem.set_xlim(20512000,20521000)
 ax2.set_title('Apparent polarization, %')
 ax1.set_title('Apparent resistivity, Ohm*m')
 all_unique = stage1_garmin.drop_duplicates(subset=['PR'], ignore_index=True)

@@ -5,7 +5,6 @@ from matplotlib.ticker import FormatStrFormatter
 import matplotlib.tri as tri
 from mplcursors import cursor
 
-
 all_stages_garmin=pd.read_csv('./transformed_data/all_stages_garmin.csv')
 all_stages_project=pd.read_csv('./transformed_data/all_stages_project.csv')
 measured_data=pd.read_csv('./transformed_data/measured_data.csv')
@@ -13,9 +12,6 @@ measured_data=pd.read_csv('./transformed_data/measured_data.csv')
 all_stages_garmin.sort_values(['PR', 'PK'], inplace=True)
 all_stages_garmin = all_stages_garmin.merge(measured_data, on=['PR', 'PK'], how='left')
 all_stages_garmin.fillna(method='bfill', inplace=True)
-# all_stages_garmin.to_csv('Шамян сличение 1-3.csv',float_format='%.1f',index=False)
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
-
 
 x = np.array(all_stages_garmin.Longitude)
 y = np.array(all_stages_garmin.Latitude)
@@ -31,6 +27,8 @@ def apply_mask(triang, alpha=400):
     triang.set_mask(maxi > alpha)
 apply_mask(triang, alpha=300)
 
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
+
 #ax1.scatter(df_missing_points.Longitude_x, df_missing_points.Latitude_x, s=5, marker='x', c='r',zorder=0)
 resist = ax1.tricontourf(triang, z_resist,  cmap="gist_earth_r",vmax=3000,levels=40)
 resist_points=ax1.scatter(x=all_stages_garmin.Longitude,
@@ -44,7 +42,7 @@ polar_points=ax2.scatter(x=all_stages_garmin.Longitude,
 
 cursor(resist_points, hover=True).connect(
         "add", lambda sel: sel.annotation.set_text(
-            'PR {:.0f}\nPK {:.0f}\nRk={:.1f}Ohm*m'.format(all_stages_garmin.iloc[sel.index].PR,
+            'PR {:.0f}\nPK {:.0f}\nRk={:.1f} Ohm*m'.format(all_stages_garmin.iloc[sel.index].PR,
                                                           all_stages_garmin.iloc[sel.index].PK,
                                                           all_stages_garmin.iloc[sel.index].Resistivity)))
 cursor(polar_points, hover=True).connect(
@@ -63,7 +61,7 @@ for elem in (ax1, ax2):
     elem.set_facecolor('lavender')
     elem.set_box_aspect(1)
     elem.set_ylim(5522000, 5532500)
-    elem.set_xlim(20512000,20522000)
+    elem.set_xlim(20512000,20521000)
     elem.label_outer()
 
 ax2.set_title('Apparent polarization, %',pad=5)

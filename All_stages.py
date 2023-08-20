@@ -20,7 +20,7 @@ all_stages_garmin.fillna(method='bfill', inplace=True)
 # all_stages_garmin.to_csv('Шамян сличение 1-3.csv',float_format='%.1f',index=False)
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
 
-#ax1.scatter(df_missing_points.Longitude_x, df_missing_points.Latitude_x, s=5, marker='x', c='r',zorder=0)
+ax1.scatter(df_missing_points.Longitude_x, df_missing_points.Latitude_x, s=5, marker='x', c='r',zorder=0)
 resist = ax1.scatter(all_stages_garmin.Longitude, all_stages_garmin.Latitude, c=all_stages_garmin.Resistivity, cmap='viridis_r', s=2.5)
 polar = ax2.scatter(all_stages_garmin.Longitude, all_stages_garmin.Latitude, c=all_stages_garmin.Polarization, cmap='seismic', s=2.5,vmin=-3,vmax=3)
 for elem in (ax1, ax2):
@@ -32,7 +32,7 @@ for elem in (ax1, ax2):
     elem.grid(alpha=0.5)
     elem.set_facecolor('lavender')
     elem.set_box_aspect(1)
-    elem.set_xlim(20512000,20522000)
+    elem.set_xlim(20512000,20521000)
     elem.label_outer()
 ax2.set_title('Apparent polarization, %')
 ax1.set_title('Apparent resistivity, Ohm*m')

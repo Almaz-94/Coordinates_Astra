@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
-
 stage3_garmin=pd.read_csv('./transformed_data/stage3_garmin.csv')
 stage3_project=pd.read_csv('./transformed_data/stage3_project.csv')
 measured_data=pd.read_csv('./transformed_data/measured_data.csv')
